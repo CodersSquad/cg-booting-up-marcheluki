@@ -79,7 +79,7 @@ class Scene:
                 void main() {
                     v_vertex = position + in_vertex * scale;
                     v_normal = in_normal;
-                    v_uv = in_uv;
+                    v_uv = -in_uv;
 
                     gl_Position = camera * vec4(v_vertex, 1.0);
                 }
@@ -106,12 +106,12 @@ class Scene:
             ''',
         )
 
-        self.texture = ImageTexture('examples/data/textures/crate.png')
+        self.texture = ImageTexture('09resources/Tec.jpg')
 
-        self.car_geometry = ModelGeometry('examples/data/models/lowpoly_toy_car.obj')
+        self.car_geometry = ModelGeometry('09resources/lowpoly_toy_car.obj')
         self.car = Mesh(self.program, self.car_geometry)
 
-        self.crate_geometry = ModelGeometry('examples/data/models/crate.obj')
+        self.crate_geometry = ModelGeometry('09resources/crate.obj')
         self.crate = Mesh(self.program, self.crate_geometry, self.texture)
 
     def camera_matrix(self):
